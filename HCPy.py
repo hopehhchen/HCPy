@@ -1,8 +1,8 @@
 import numpy as np
 
-def PAtan(fprime):
-    fpx, fpy = fprime[0], fprime[1]
-    PA_E = np.degrees(np.arctan2(fpy, fpx))
+def PA(vector):
+    vx, vy = vector[0], vector[1]
+    PA_E = np.degrees(np.arctan2(vx, vy))
 
     if (PA_E >= 90.) and (PA_E <= 180.):
         PA = PA_E - 90.
