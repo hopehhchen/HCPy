@@ -11,6 +11,32 @@ from scipy.spatial import distance
 from HCPy import *
 
 class ShapeStatistics(object):
+    '''
+    Statistics object that takes in a radfil object and calculates properties
+    related to the shape of the spline.
+
+    Parameters
+    ----------
+    radfil: a RadFil object with `xbeforespline` and `ybeforespline`.  That is,
+            after `build_profile` is run.
+
+    samp_int: integer (default = 1)
+              Similar to `samp_int` in RadFil, it is used to determine the knots
+              that are used to calculate the statistics.  Since no cutting is
+              performed, `samp_int` can be set to a smaller value without
+              delaying the performance much.
+
+    Attributes
+    ----------
+    distance: the distance along the spline. [pix]
+
+    PA: the position angle of the tangent vector. [deg]
+
+    PArate: the rate at which PA changes along the spline. [deg/pix]
+
+    mcurvature: the Menger 3-point curvature.  [1/pix]
+    '''
+
     def __init__(self, radfil, samp_int = 1):
         if hasattr(radfil, 'xbeforespline') and hasattr(radfil, 'ybeforespline'):
             self.radfil = radfil
