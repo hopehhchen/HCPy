@@ -1,3 +1,5 @@
+import warnings
+
 import numpy as np
 from scipy.spatial import distance
 
@@ -29,6 +31,8 @@ def PositionAngle(vectors):
 
 
 def PointsDist(point1, point2):
+
+    warning.warn('Use scipy.distance functions instead of this one.')
     # Calculate the Euclidean distance between two points
 
     return np.hypot(point1[0]-point2[0], point1[1]-point2[1])
