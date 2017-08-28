@@ -38,6 +38,7 @@ class ShapeStatistics(object):
     '''
 
     def __init__(self, radfil, samp_int = 1):
+        # Check if the radfil object is properly made.
         if hasattr(radfil, 'xbeforespline') and hasattr(radfil, 'ybeforespline'):
             self.radfil = radfil
             self.xbeforespline = radfil.xbeforespline
@@ -45,6 +46,7 @@ class ShapeStatistics(object):
         else:
             raise ValueError('Please run build_profile before input.')
 
+        # Check for `samp_int`
         if isinstance(samp_int, numbers.Number):
             self.samp_int = samp_int
         else:
