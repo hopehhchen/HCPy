@@ -46,6 +46,13 @@ class ShapeStatistics(object):
         else:
             raise ValueError('Please run build_profile before input.')
 
+        # Check for imgscale, which users can use for unit conversion.
+        # Check for units at the same time.
+        if hasattr(radfil, 'imgscale'):
+            self.imgscale = radfil.imgscale
+        else:
+            raise ValueError('There is no imgscale in the radfil obj.')
+
         # Check for `samp_int`
         if isinstance(samp_int, numbers.Number):
             self.samp_int = samp_int
